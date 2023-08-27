@@ -3,7 +3,8 @@ ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 ENV KC_DB=postgres
 ENV KC_FEATURES=token-exchange,admin-fine-grained-authz
-COPY keycloak-metrics-spi-3.0.0.jar /opt/keycloak/providers/keycloak-metrics-spi.jar
+COPY keycloak-metrics-spi-4.0.0.jar /opt/keycloak/providers/keycloak-metrics-spi.jar
+COPY keycloak-kafka-1.1.5-jar-with-dependencies.jar /opt/keycloak/providers/keycloak-kafka.jar
 
 WORKDIR /opt/keycloak
 RUN /opt/keycloak/bin/kc.sh build
