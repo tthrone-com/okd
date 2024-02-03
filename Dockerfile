@@ -11,7 +11,7 @@ RUN /opt/keycloak/bin/kc.sh build
 
 FROM quay.io/keycloak/keycloak:23.0.5
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
-COPY keycloak-metrics-spi-3.0.0.jar /opt/keycloak/providers/keycloak-metrics-spi.jar
+#COPY keycloak-metrics-spi-3.0.0.jar /opt/keycloak/providers/keycloak-metrics-spi.jar
 
 # change these values to point to a running postgres instance
 ENV KC_DB=postgres
