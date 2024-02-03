@@ -1,4 +1,4 @@
-FROM quay.io/keycloak/keycloak:21.1 as builder
+FROM quay.io/keycloak/keycloak:23.0.5 as builder
 ENV KC_HEALTH_ENABLED=true
 ENV KC_METRICS_ENABLED=true
 ENV KC_DB=postgres
@@ -9,7 +9,7 @@ COPY keycloak-kafka-1.1.5-jar-with-dependencies.jar /opt/keycloak/providers/keyc
 WORKDIR /opt/keycloak
 RUN /opt/keycloak/bin/kc.sh build
 
-FROM quay.io/keycloak/keycloak:21.1
+FROM quay.io/keycloak/keycloak:23.0.5
 COPY --from=builder /opt/keycloak/ /opt/keycloak/
 COPY keycloak-metrics-spi-3.0.0.jar /opt/keycloak/providers/keycloak-metrics-spi.jar
 
